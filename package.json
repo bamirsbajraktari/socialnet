@@ -1,0 +1,14 @@
+{
+  "name": "isharesocial",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.6",
+    "ejs": "*",
+    "express": "3.2.6",
+    "mysql": "^2.11.1"
+  }
+}
