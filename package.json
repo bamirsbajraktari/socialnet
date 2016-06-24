@@ -1,5 +1,5 @@
 {
-  "name": "isharesocial",
+  "name": "socialnet",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,5 +10,18 @@
     "ejs": "*",
     "express": "3.2.6",
     "mysql": "^2.11.1"
-  }
+  },
+  "description": "Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)\r  ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bamirsbajraktari/socialnet.git"
+  },
+  "author": "bamirs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bamirsbajraktari/socialnet/issues"
+  },
+  "homepage": "https://github.com/bamirsbajraktari/socialnet#readme"
 }
