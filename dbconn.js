@@ -7,10 +7,10 @@ var mysql=require('mysql');
 
 
 var conn=mysql.createConnection({
-	host:"localhost",
-	user:"root",
-	password:"",
-	database:"test"
+	host:"192.168.1.5",
+	user:"socialnet",
+	password:"socialnet2016",
+	database:"socialnet"
 });
 
 conn.connect(function(err){
