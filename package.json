@@ -18,7 +18,11 @@
     "type": "git",
     "url": "git+https://github.com/bamirsbajraktari/socialnet.git"
   },
+<<<<<<< HEAD
   "author": "bamirs",
+=======
+  "author": "",
+>>>>>>> b96988171185a7c7a903080c024e4b7f5199c45a
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bamirsbajraktari/socialnet/issues"
