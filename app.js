@@ -8,6 +8,7 @@ var express = require('express')
   , user = require('./routes/user')
   , profile = require('./routes/profile')
   , welcome = require('./routes/welcome')
+  , login = require('./routes/login')
   , http = require('http')
   , path = require('path');
 
@@ -33,6 +34,7 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/profile', profile.renderUser);
 app.get('/welcome', welcome.render);
+app.post('/login', login.login);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

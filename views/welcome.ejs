@@ -3,6 +3,9 @@
   <head>
     <title><%=   title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascript/jquery-3.0.0.js"></script>
+    <script src="/javascript/jswelcome.js"></script>
+  
   </head>
   <body>
     <h1><%= title %></h1>
@@ -10,10 +13,10 @@
     
     
 <form action="/login">
-First name: <input type="text" name="username" value="" placeholder="Username"><br>
-Last name: <input type="password" name="password" value="" placeholder="password"><br>
-<input type="submit" value="Submit">
+First name: <input type="text" name="username" value="" id="username" placeholder="Username"><br>
+Last name: <input type="password" name="password" value="" id="password" placeholder="password"><br>
+<input type="submit" value="Submit" id="loginbtn">
 </form>
 
-  </body>
+</body>
 </html>

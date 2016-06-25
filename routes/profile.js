@@ -42,6 +42,7 @@ function(callback){
  function(err,results){
 
 console.log(results);
+
 		res.render("profile",{result:results});
 	
 });
