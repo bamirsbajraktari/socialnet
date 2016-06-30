@@ -27,8 +27,16 @@ function(callback){
 		
  function(err,results){
 
-
-		res.send(results);
+if(results == "loginerror"){
+	res.send("loginerror");
+}else{
+	//this.header('Location', "/");
+	req.session.name="session";
+	
+	console.log("Session set:"+req.session.name);
+	res.send("succes");
+}
+		
 	
 });
 };

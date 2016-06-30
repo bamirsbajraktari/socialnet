@@ -1,0 +1,91 @@
+<html>
+<title>
+    Login
+    </title>
+<head>
+    <link rel='stylesheet' href='stylesheets/Vidage.css' />
+    <link rel='stylesheet' href='stylesheets/loginstyle.css' />
+    <script src="javascript/jquery-2.2.4.min.js"></script>
+    <script src="javascript/Vidage.min.js"></script>
+    <script src="javascript/login-script.js"></script>
+    </head>
+<body>
+    <div class="Vidage">
+    <div class="Vidage__image"></div>
+
+    <video id="VidageVideo" class="Vidage__video" preload="metadata" loop autoplay muted>
+        <source src="videos/video.mp4" type="video/mp4">
+    </video>
+
+    <div class="Vidage__backdrop"></div>
+</div>
+    <!-- Vidage init -->
+
+        <script>
+            new Vidage('#VidageVideo');
+        </script>
+    
+<div class="loginContainer">
+<div class="LogintopBar">
+<div class="tb-search"><input type="search" placeholder="Search on SocialNet" ></div>
+ <div class="tb-menus">
+          <ul class="u-list">
+          <li class="tb-link"><a href="#"><img class="icon icons8-Home" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABkklEQVRIS+2XjU3DMBCF6wlghGwAGzRswAa0E9BOQNkAJiAbQCegbEA36AgwQXgvsquLf3JOaqlCaiSrqXu5z2ffe23N7EyXORN3Nhnctm3NRRtjdrHF4/MF5h8wDhhrxP3IuElgm/TNJloiaePDEdOKuSBmNNiDutxBYg/8jMVtJlfsQfc20U2s8mLgCLQ7Y1w84wBeBJyAVhbM5gngJ4MHoJ8WfGc7twfHnGs+ho07YwV6bcGUSQwueykfnAl1yTV4HngkNAeugydCNfgrdLxK6vhEqAbvmczRuQpBs+EduDA0C24AvUfku42mDdYYNAfq1ElGHs+Y+1S3Lwl+QaZHjNLQocq3BLMqVv2RUekvYhqM3ner3ZkFXq8S2yErZ3c3srluM7Y3kIUDiZ1LHUUHh6y+GSDBO7yfKwcYGIEAb3D/pDz/BXB9AV+2OtYn/7a5tuhqekZPTjlyoBZpFL6BVJijA2oWe9wxqWM+dBhwH0Wi6sd0vcr9o+j9oIf7uJVT5Cn7UwleAIFUzApQFtZdf2ehFlV9+KTQAAAAAElFTkSuQmCC" width="24" height="24">Home</a></li>
+              <li class="tb-link"><a href="#"><img class="icon icons8-Binoculars" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACG0lEQVRIS7WWgVECQQxFuQqQCsQKhAqkA7UCuQ7sQKxAOhAqUCrwrECpQKxAqOD8b2dzhmVPZm6Gnclwe/uTn2STHEXvxKs4sf1eK0Fd15OiKKpjDgh3Jsyl5Fv4TYo/IJDCVKAnCYpbSSnF1xxRxD67M7ALj90jiN58CoAnGB9J+lIapATCDvXuC88l6OAQ70bCoxtWLgJAV/F8pd8pBtJ0iQDyiQSPryP+PU1TGgHGfMjHUnQT8Xhv69anNCXAYN+B7bHUQyW5iy+W0XvvjGG3PqUNgULGm5eM8S6vmig8Abk0D7sY9TpLRUG6/y5ZEbSlpwtZk6YQQaaeuxhNdUKajIBGslIz4EYPawnleN7CaD1AJw8TzEoEN0Vsrp/kcKe9VRN3M5ZgxC/IccIc8zqGG0DAZVBuAKZWw7GRiAzvKdO5IwV7H/UgQo9uJt1UI07hYAmBpWevQSKY9HxIUMZQ2geQj824ue1KfgVBzYFA2cmqY4yTHuYR0bLwkLSupYYTB6uxGx/2us+jdV5pz2wa2BBzg47ZM2khCGVPBOZhLtShQEzMnQz5eUOurW8u0gHHt0Q6byFCd8kQMc/tsjDO6CAFj3o/SyJj/yABz/1tOI/FgR76pfXBQhu7QBTwzkL/L88WPbYrCVHanYRx4WcRZYdYU1GK89RzH0X0mEjQs76h+Wb2Zct9cEKu/VcpNZrbx4Y90Dv5v4pfmIP3Uo1vMm8AAAAASUVORK5CYII=" width="24" height="24">Discover</a></li>
+              
+              <li class="tb-link"><a href="#"><img class="icon icons8-Info" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACF0lEQVRIS8WXgVXCMBCG7QToBJYJ1AmsEygTCBvgBOIEygTWCcAJhA1gAssE6gT1//uSmhSau4DWey8vai/33SV3uZgc/ZMkMdyyLFPoX2JwdqXAL8skSTirRAUGcAxrtxjngtUVvudwYCrRg2AAb2DgcUeEkl1GfgcH5m2KrWBAcxOlBAl9Z/SjXQo7wYDS0+tDiM7aOeCDpq0tcGSkaxjktmYYvYCjW5F7YHOmM2WkD4hkQl2sY9ItBPjAPfMmmN6fKsFXMERYJYDzZ5ZamxTQ79uPNdiUDDNYK8zaJwM9xvyOwTkk9RoXzBo801KNXo65wBhipIq1Kzh7Qb0KbG4ketyF9HnDWTA9flZQv6DDUuP4xOAFw7WhjG6aHQGcW/AEX+8VYG5TDwuXVhe7pXXaLqmqIRZsF9elATAT6kPh9K+A61ICOIPFt67AJ9gunjETk50rpgy9rY45pzWgdXvc4173kiuF19pymgLMKCsBuIzYZqr+lJMxoL1ADjnfereir0xE667RlqHdlO0r00RdYJaahJtYzGjCmWhS/97AZx5pJfu0Ra+3mjrme6xqGAFpb4sm6hwzDYWEO8NBYYZLXekF0Q5dg108fV4B5Z3uyV8/9rzSEyO2CuYpxLOTEq4Z0AZ/GLtPHXXErqK5FnlG0kOBjz8mn5RoflYLCWUfDBn00oYuE23BBi/ZsN9V/8JojcXofQPmed0fxdl4MAAAAABJRU5ErkJggg==" width="24" height="24">About</a></li>
+          </ul></div>
+</div>
+
+
+
+<!--Login page left div begin-->
+     <div class="login-left-div">
+    <h1 class="loginH1">Welcome to SocialNet.</h1>
+<p class="loginparagraph">
+Connect with your friends  and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.
+</p>
+
+
+    </div>
+    <!--Login page left div end-->
+    <!--Login page right div begin-->
+  <div class="login-right-div">
+  <div class="login-logodiv">
+  <img class="icon icons8-Share-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADW0lEQVRoQ+2ZjXETMRCFuQqACnAqgA4wFWBXgF0BTgVcKiBUwLkCkgoIFeBUgFMBTgXmPc3qON/oTj+3GjkMmvHYjrW6/bS70u6menZm43g8foBKc7zeyIsa7uR1U1XVrUvl6lw4ALCALp/xmnl02uP3SwDddOedBQggCLCJ3NRrwFxameIggLiGMh8jIez0L4AxG1AURNzpWyKEFVvSzUqD/AqICR/nHiAXxUBgjRU0/OrTMvD3ZUmQBkryqNUY25IgP0HAu0Jj7EqCHDUIih+/iJGnCSKpR40d5HG5w/c7fH6rZJX77K7VAZiJ0ubcx9+ZYrxXAskX7A4Aq/MWICuly/Dvpai0I+0yIwB2zgEgL/kFc/d4ezVRhwesNxt0rYF0mg9mSs10ettVIACgO30N+UbJKu4UJTWdhlwDTUMvuAPmXgDmADkeAJ8SreJOGhPT6RoKXYmrxAQwrboUuRSYFoJrtK41MZ2+glI11niBNel+zwN3uIHcWmDmeKdVfTHzgDkbZ2Gl5KvvsPhdZDLIOKNSdDUzRJ7VItMXC3WPzzY2TypDK2csAmG1dFrWo2JjViEAXZLWUxlV5A76HmqtQhdxBb46QGuRyNPGB3KLXV44XDUbQBdEM53+AZA5QOjfXDc7QBdENwsFicTJTDMGfK7AGPlnQHisvfYRB/7edy0GPe8YtdNpSA9aZOiECdT9ZNpQsGcHIggvn6m9JUtja42hpluNiUwt2gswZbdcMjYwaXpfauB7pkmnJdB/453pimsQgqCqQBZEwyqxKYoTSMoBm6KYjcEI78YrJo1Md4as0bfQFlZciRX1uvGJMGzx01WYszHWqFDIMAeDyLGJbdaIGOPdeAl+LuqLmZN0GnJsf5rdDRiPmMMLk4XV0MEQsIyJsw0njpW63C3rq/aeofI2nW66T5Lksw7YAIqtoQBL3Tk+fw/ReGROnm58ANAjIEwMaZYP2fpaI0DGHdTvr4lm9Yo7gJ5Wg65P2AFawCLaLdP/3XivS/kmqJcPvgfm+h0gmuVD/m780EYolw/5uvE+Syp3b8r9M1QuxH1gJjC2L6Z8yHYh+iwiIBrlQ54UJQSgl6PlTRpjFZoyPzEDdnfjpyiiIZtaPthnF40R1wYIUL988Hbj/wAVmMsM4K8JOwAAAABJRU5ErkJggg==" width="50" height="50">
+  <span>SocialNet</span>
+  </div>
+    <div class="LoginFormcont">
+      <form id="loginForm" action="/login" method="POST">
+        
+        <input type="text" name="username" id="username" placeholder="Username or Email">
+          <input type="password" name="password" id="password" placeholder="Password"> 
+          <input type="submit" id="loginBtn" value="Log in" >
+          <div class="loginOptions">
+          <label><input type="checkbox" id="rememberme">Remember me.</label>
+          <label><a href="#">Forgot password?</a></label>
+          </div>
+          
+        
+        </form>
+      
+      </div>
+      <!--Login page loginformcont div end-->
+    <div class="register-buttons">
+<label>New to Socialnet ?</label>
+<button class="registerbuttonclass button1" id="create-profile">
+<img class="icon icons8-Add-User-Male" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAADFklEQVRYR7WYj3XTMBCH4wmgE+BO0DIB7gTQCUgnoExAMwFlArIB7QS4E7Qb4E5AO0H4fX6SkR3FPsmx3vNzm+juPt0f6ZRilTh2u91biXzUU+kpnfiL3rWe+6IomkSVo9OLFGWC+6L5N3qAPDS2+uKrQIGePcyAgvspa2ujxSfNuzgGpAlQcHjtmxHOT6sFeJEoszd9ElBw5NmfTENXgiTk2cMCeCvt5F7OaAR4miPoZSyAj5p8PsPI6ZzKtgDuZsAheinAu1wdo4DKPzyHB+eMjQApsqwxBVhJ6+8szf+FFgUsZSe3gj3icoBYUJjn5iAbdp0bBUuRcGS9yTUgufcC5GTJGhbArTR/ztK+Wr0KbuzcnlRrAVxLC+dwzqC7+ZQj6GUsgHigyQzz8kedK5QbvVObhWd5r5zjPWQnPegAMZS63cz2nhnQQabk4uzcM+dgGCJtiZaKfpbM+TGa1SQPJoSadp8WrTeCuwzpUrkva1eAeDx6RTDl4MCLUydL7+RwYBTY9UTBsCiOxR5oEqCMsfKp5qErDtcNMd+6WQPHAruTxwwoY5wmrHLMWJd/GXDewT3IqXYLGNp9wmPxQus9F1a2pZgMi6DYGGs97yKhB5JO/CUK6Az4O/BE6nRfdxuz5MfuMQ8y3BaJ5tV6fThgoG3T9gCNl/OYzh9SeO0W93dkVVZAVJx0gE7xL33Yri5jtNUrPYRtrLlIAbxqAd3dl2orM8C8yAk5E7nkP2gCofSDq+jW2WUxoU3+D3NyUzjPATfnarmSUb9YYMK8anPJsvBITt4DiHBqp7Jnb0nA4Yoti43NYVtoIgtGfxhiqj0McRjSYcjbEB8LcJkiOSLgMtuMADklvufGdVCd7Q9FR9+ojX2eZQ3hUddIIHZd5fM2BzWGOedtvOqPsnfUuU6Fij509FgAMc49mP2QbYv8Tr1TA1f5jiZ21JWawFURAzxnFrJgzp2UX7pQp0L24NCR0m5VA1CMh90K3vLjCS86SOYQmakfQTeac+vlvCIzYKIX96a7E4vIECF/atGYNnrwerTl/wcdgG5g2oiZpgAAAABJRU5ErkJggg==" width="40" height="40">
+ Create your profile</button>
+<label> or</label>
+<button class="registerbuttonclass button2" id="create-page">
+<img class="icon icons8-Template-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAA90lEQVRYR+1Z0Q2CMBTsm0A3USdAN3IDZQM3EkZwAnUDN6jXhBJC/OC90qQ116Q/pFfuXdvjAPHeX51zF/QSWysg6EtkFjmRYOrqUME1FAynuNgmxTIbiHEPpq5QlQo+UPU5tXIj/gbcbor9pWAvIkfjDZJgeOp2mKAhQauMf6OgVYAsuCptJosS1kmrVPCNavfwwo+m6tkJVHsp8Fvc74W+yeKDs5evFgWqY1xWmyHBybqr90/AUkEquMCzeIohUvwIRR9UR37aDG1mRZsJkedgiFt34OLe7YA/LeA0Dhni1hMXQuwaW5WBVVN49rFVKBiSb7G/Ib5vulQfBhuzLwAAAABJRU5ErkJggg==" width="40" height="40">
+Create your Page</button>
+    </div>
+    <!--Login page register buttons div end-->
+    </div>
+    <!--Login page right div end-->
+   
+    </div>
+    <div class="login-footer"></div>
+    </body>
+</html>

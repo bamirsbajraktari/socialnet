@@ -9,6 +9,7 @@
     "async": "^2.0.0-rc.6",
     "ejs": "*",
     "express": "3.2.6",
+    "express-session": "^1.13.0",
     "mysql": "^2.11.1"
   },
   "description": "Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)\r  ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))",
@@ -18,11 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/bamirsbajraktari/socialnet.git"
   },
-<<<<<<< HEAD
   "author": "bamirs",
-=======
-  "author": "",
->>>>>>> b96988171185a7c7a903080c024e4b7f5199c45a
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bamirsbajraktari/socialnet/issues"

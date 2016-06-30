@@ -27,7 +27,7 @@ var pool=mysql.createPool({
 
 
 exports.getusers=function(name,callback){
-	var query="select * from users where emri=?";
+	var query="select * from user where username=?";
 	pool.getConnection(function(err,conn){
 		if(err){
 			conn.release();
@@ -47,7 +47,7 @@ exports.getusers=function(name,callback){
 
 
 exports.checkLogin=function(username,password,callback){
-	var query="select * from users where username='"+username+"' and password='"+password+"'";
+	var query="select * from user where username='"+username+"' and password='"+password+"'";
 	console.log(query);
 	
 	pool.getConnection(function(err,conn){

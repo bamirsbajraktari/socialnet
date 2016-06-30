@@ -9,6 +9,8 @@ var express = require('express')
   , profile = require('./routes/profile')
   , welcome = require('./routes/welcome')
   , login = require('./routes/login')
+   ,logout = require('./routes/logout')
+   ,headers = require('./routes/headers')
   , http = require('http')
   , path = require('path');
 
@@ -21,8 +23,12 @@ app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
+app.use(express.cookieParser() );
+app.use(express.session({secret:'123456789abcdef'}));
 app.use(express.methodOverride());
 app.use(app.router);
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
@@ -34,7 +40,9 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/profile', profile.renderUser);
 app.get('/welcome', welcome.render);
+app.get('/logout', logout.logout);
 app.post('/login', login.login);
+app.get('/:username', headers.check);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
