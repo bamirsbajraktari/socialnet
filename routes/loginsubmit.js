@@ -31,9 +31,9 @@ if(results == "loginerror"){
 	res.send("loginerror");
 }else{
 	//this.header('Location', "/");
-	req.session.name=results[0].firstname;
-	
-	console.log("Session set:"+ req.session.name);
+	req.session.username=results[0].username;
+	req.session.userID=results[0].userID;
+	console.log("Session set:"+ req.session.username);
 	res.send("success");
 }
 		

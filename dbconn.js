@@ -23,7 +23,7 @@ var pool=mysql.createPool({
 //conn.connect();
 
 
-
+exports.pool=pool;
 
 
 exports.getusers=function(name,callback){

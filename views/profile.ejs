@@ -47,7 +47,7 @@ $(function() {
               <li class="tb-link"><a href="#"><img class="icon icons8-Add-User-Male" src="images/notifications.png" width="28">Notifications</a></li>
           </ul>
               <div class="header-profile-img">
-			  <img src="images/profile.png"/>
+			  <img src="images/<%= user[0].profileImgURL %>"/>
 			  </div>
               </div>
         
@@ -60,13 +60,13 @@ $(function() {
         <div class="left-side-column columns">
           <div class="profile-tile-container">
             <div class="ptc-images">
-              <div class="ptc-cover">
+              <div class="ptc-cover" style="background:url('../images/<%= user[0].coverImgURL %>');background-position:center;background-repeat: no-repeat;background-size: cover;">
               </div>
-              <div class="ptc-profileimg">
+              <div class="ptc-profileimg" style="background:url('../images/<%= user[0].profileImgURL %>');background-position:center;background-repeat: no-repeat;background-size: cover;">
               </div>
             </div>  
               <div class="ptc-info">
-                <h3>John Doe</h3>
+                <h3><%= user[0].firstname+" "+user[0].lastname %></h3>
                 <p class="quote">The best preparation for tomorrow is doing your best today</p>
                 <ul class="friends-count">
                   <li id="first-li"><a>Friends <h2>12M</h2></a></li>
