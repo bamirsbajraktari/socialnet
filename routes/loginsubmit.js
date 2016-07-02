@@ -15,7 +15,7 @@ function(callback){
 	
 	db.checkLogin(url_parts.username,url_parts.password,function(err,results){
 		if(!err){
-			console.log(results);
+			
 			callback(null,results);	 
 		}
 		 
@@ -26,15 +26,15 @@ function(callback){
 		
 		
  function(err,results){
-
+console.log(results[0].firstname);
 if(results == "loginerror"){
 	res.send("loginerror");
 }else{
 	//this.header('Location', "/");
-	req.session.name="session";
+	req.session.name=results[0].firstname;
 	
-	console.log("Session set:"+req.session.name);
-	res.send("succes");
+	console.log("Session set:"+ req.session.name);
+	res.send("success");
 }
 		
 	

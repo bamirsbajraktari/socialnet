@@ -25,7 +25,7 @@
             new Vidage('#VidageVideo');
         </script>
     
-<div class="loginContainer">
+<div class="loginContainer fadeIn animated">
 <div class="LogintopBar">
 <div class="tb-search"><input type="search" placeholder="Search on SocialNet" ></div>
  <div class="tb-menus">
@@ -55,9 +55,13 @@ Connect with your friends  and other fascinating people. Get in-the-moment updat
   <img class="icon icons8-Share-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADW0lEQVRoQ+2ZjXETMRCFuQqACnAqgA4wFWBXgF0BTgVcKiBUwLkCkgoIFeBUgFMBTgXmPc3qON/oTj+3GjkMmvHYjrW6/bS70u6menZm43g8foBKc7zeyIsa7uR1U1XVrUvl6lw4ALCALp/xmnl02uP3SwDddOedBQggCLCJ3NRrwFxameIggLiGMh8jIez0L4AxG1AURNzpWyKEFVvSzUqD/AqICR/nHiAXxUBgjRU0/OrTMvD3ZUmQBkryqNUY25IgP0HAu0Jj7EqCHDUIih+/iJGnCSKpR40d5HG5w/c7fH6rZJX77K7VAZiJ0ubcx9+ZYrxXAskX7A4Aq/MWICuly/Dvpai0I+0yIwB2zgEgL/kFc/d4ezVRhwesNxt0rYF0mg9mSs10ettVIACgO30N+UbJKu4UJTWdhlwDTUMvuAPmXgDmADkeAJ8SreJOGhPT6RoKXYmrxAQwrboUuRSYFoJrtK41MZ2+glI11niBNel+zwN3uIHcWmDmeKdVfTHzgDkbZ2Gl5KvvsPhdZDLIOKNSdDUzRJ7VItMXC3WPzzY2TypDK2csAmG1dFrWo2JjViEAXZLWUxlV5A76HmqtQhdxBb46QGuRyNPGB3KLXV44XDUbQBdEM53+AZA5QOjfXDc7QBdENwsFicTJTDMGfK7AGPlnQHisvfYRB/7edy0GPe8YtdNpSA9aZOiECdT9ZNpQsGcHIggvn6m9JUtja42hpluNiUwt2gswZbdcMjYwaXpfauB7pkmnJdB/453pimsQgqCqQBZEwyqxKYoTSMoBm6KYjcEI78YrJo1Md4as0bfQFlZciRX1uvGJMGzx01WYszHWqFDIMAeDyLGJbdaIGOPdeAl+LuqLmZN0GnJsf5rdDRiPmMMLk4XV0MEQsIyJsw0njpW63C3rq/aeofI2nW66T5Lksw7YAIqtoQBL3Tk+fw/ReGROnm58ANAjIEwMaZYP2fpaI0DGHdTvr4lm9Yo7gJ5Wg65P2AFawCLaLdP/3XivS/kmqJcPvgfm+h0gmuVD/m780EYolw/5uvE+Syp3b8r9M1QuxH1gJjC2L6Z8yHYh+iwiIBrlQ54UJQSgl6PlTRpjFZoyPzEDdnfjpyiiIZtaPthnF40R1wYIUL988Hbj/wAVmMsM4K8JOwAAAABJRU5ErkJggg==" width="50" height="50">
   <span>SocialNet</span>
   </div>
-    <div class="LoginFormcont">
-      <form id="loginForm" action="/login" method="POST">
-        
+    <div class="LoginFormcont" id="login-form-cont">
+    <span id="errorMessage"></span>
+          <form id="loginForm"  action="/login" method="POST">
+            <div class="username-error"><img class="icon icons8-Cancel" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACh0lEQVRIS8WXwW7TQBCGd51AFYpEOaFwyhsQbkCRmt4QpcJ9gpYnoH0C2idoeALKE9QIiri1lShww7xBTkScWg4tUGwPMxvb3di73nECIhdH9ux8M5N/xhMpmJ9jvzv36/zKAnheVwB0hJQddRRggN8HMknCmctnh9eD8ITjUrqMho/u90CIp2jou2xVHEIEaPu8/eb9QZW9FTx8cKcDzeY2F1iEqACiaKP97tPAFIARnGa5iw/nOFnabBB+gj5WTNmXwMOH99aE572YBlg6myRP2m8/7Oj3x8CUKT7c/6vQC2eLeuY5OP1NP09b3sqyR9Ht7DfPwV+X5gMp5eN/lO3ILcDL9t7RGn1VYFeJQcAXKeQ6Xvt4vWUKjmOTnlMlV+CqbMlhq3nao8FAQ+RHNIuHxuEcmyxYAHh1c+/Il+TsZ3T1uKLEY6IownVo5sNVQcxYym/Ld/0EGrtWUQCErUuni/oozOB0JqtGdl49+z27j3rp2nx6Ml6RGN0mGjyrEhWWxwinM6WAHNCUsyWHS/M7OORXXWo2wfUznExze1Q3ZXyANxZc4FE3lDOn+7WgI9BhPbCm8FK2BrVXJINgbqkt0DFRceFpqd3iMkCpvEZx8eBb7nayQKllVDtZWs024eiMaqeJBojWMibBsQYIRVA5MjUl29Srw10Kz0cmgV0RkmOcRBt43bZNJI5NKsSLl4Qra06Ps2yKr0WVNS53otEM8UV5jeWkrhGI7yKOuqVFgFPyuqyCvXn1yYz+y7KXw2npAxFMXXYqrxQ+a73N4bTQNxr9ifcwFJKI481aC73+26jlHmCdGwD1Kdr2J/4LUxQSDYbzuNXDbcX4pw3HYHjj9ceAK8A/IgS7AoGDLCAAAAAASUVORK5CYII=" width="30" height="30">
+        </div>
+                <div class="password-error"><img class="icon icons8-Cancel" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACh0lEQVRIS8WXwW7TQBCGd51AFYpEOaFwyhsQbkCRmt4QpcJ9gpYnoH0C2idoeALKE9QIiri1lShww7xBTkScWg4tUGwPMxvb3di73nECIhdH9ux8M5N/xhMpmJ9jvzv36/zKAnheVwB0hJQddRRggN8HMknCmctnh9eD8ITjUrqMho/u90CIp2jou2xVHEIEaPu8/eb9QZW9FTx8cKcDzeY2F1iEqACiaKP97tPAFIARnGa5iw/nOFnabBB+gj5WTNmXwMOH99aE572YBlg6myRP2m8/7Oj3x8CUKT7c/6vQC2eLeuY5OP1NP09b3sqyR9Ht7DfPwV+X5gMp5eN/lO3ILcDL9t7RGn1VYFeJQcAXKeQ6Xvt4vWUKjmOTnlMlV+CqbMlhq3nao8FAQ+RHNIuHxuEcmyxYAHh1c+/Il+TsZ3T1uKLEY6IownVo5sNVQcxYym/Ld/0EGrtWUQCErUuni/oozOB0JqtGdl49+z27j3rp2nx6Ml6RGN0mGjyrEhWWxwinM6WAHNCUsyWHS/M7OORXXWo2wfUznExze1Q3ZXyANxZc4FE3lDOn+7WgI9BhPbCm8FK2BrVXJINgbqkt0DFRceFpqd3iMkCpvEZx8eBb7nayQKllVDtZWs024eiMaqeJBojWMibBsQYIRVA5MjUl29Srw10Kz0cmgV0RkmOcRBt43bZNJI5NKsSLl4Qra06Ps2yKr0WVNS53otEM8UV5jeWkrhGI7yKOuqVFgFPyuqyCvXn1yYz+y7KXw2npAxFMXXYqrxQ+a73N4bTQNxr9ifcwFJKI481aC73+26jlHmCdGwD1Kdr2J/4LUxQSDYbzuNXDbcX4pw3HYHjj9ceAK8A/IgS7AoGDLCAAAAAASUVORK5CYII=" width="30" height="30">
+</div>
         <input type="text" name="username" id="username" placeholder="Username or Email">
           <input type="password" name="password" id="password" placeholder="Password"> 
           <input type="submit" id="loginBtn" value="Log in" >

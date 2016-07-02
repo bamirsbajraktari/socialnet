@@ -8,7 +8,7 @@ var express = require('express')
   , user = require('./routes/user')
   , profile = require('./routes/profile')
   , welcome = require('./routes/welcome')
-  , login = require('./routes/login')
+  , login = require('./routes/loginsubmit')
    ,logout = require('./routes/logout')
    ,headers = require('./routes/headers')
   , http = require('http')
@@ -41,7 +41,7 @@ app.get('/users', user.list);
 app.get('/profile', profile.renderUser);
 app.get('/welcome', welcome.render);
 app.get('/logout', logout.logout);
-app.post('/login', login.login);
+app.post('/loginsubmit', login.login);
 app.get('/:username', headers.check);
 
 http.createServer(app).listen(app.get('port'), function(){
