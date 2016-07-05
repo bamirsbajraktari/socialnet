@@ -3,26 +3,8 @@
   <head>
     <title>Socialnet - We connect people</title>
     <link rel='stylesheet' href='stylesheets/style.css' />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-	<script>
-$(function() {
-    //  changes mouse cursor when highlighting loawer right of box
-    $(document).on('mousemove', 'textarea', function(e) {
-		var a = $(this).offset().top + $(this).outerHeight() - 16,	//	top border of bottom-right-corner-box area
-			b = $(this).offset().left + $(this).outerWidth() - 16;	//	left border of bottom-right-corner-box area
-		$(this).css({
-			cursor: e.pageY > a && e.pageX > b ? 'nw-resize' : ''
-		});
-	})
-    //  the following simple make the textbox "Auto-Expand" as it is typed in
-    .on('keyup', 'textarea', function(e) {
-        //  the following will help the text expand as typing takes place
-        while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
-            $(this).height($(this).height()+1);
-        };
-    });
-});
-	</script>
+	 <script src="javascript/jquery-2.2.4.min.js"></script>
+    <script src="javascript/basescript.js"></script>
   </head>
   <body>
   <div class="topBar">
@@ -47,8 +29,17 @@ $(function() {
               <li class="tb-link"><a href="#"><img class="icon icons8-Add-User-Male" src="images/notifications.png" width="28">Notifications</a></li>
           </ul>
               <div class="header-profile-img">
-			  <img src="images/<%= user[0].profileImgURL %>"/>
-			  </div>
+			  <img src="images/<%= user[0].profileImgURL %>" id="header-prof-img"/><!--top right profile image-->
+                  
+                   <div class="profile-img-nav" id="header-nav">
+                       <ul class="profile-img-nav-ul">
+                           <li><a href="/profile">Profile</a></li>
+                           <li><a href="#">Settings</a></li>
+                           <li><a href="/logout">Logout</a></li>
+                       </ul>
+			       </div>
+                  
+			  </div><!-- top right profile image-->
               </div>
         
           </div>

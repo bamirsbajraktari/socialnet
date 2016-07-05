@@ -17,7 +17,9 @@ function(callback){
 		if(!err){
 			
 			callback(null,results);	 
-		}
+		}else{
+            console.log(err);
+        }
 		 
 	});
                           

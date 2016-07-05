@@ -4,13 +4,9 @@
 	var query="select * from user where username='"+username+"'";
 	
 	
-	db.pool.getConnection(function(err,conn){
-		if(err){
-			conn.release();
-			console.log("error connecting to database"+err.stack);
-		}
+
 		
-	conn.query(query,function(err,rows){
+	db.conn.query(query,function(err,rows){
         console.log(query);
 		if(err){
 			console.log("error :"+err);
@@ -23,6 +19,6 @@
         console.log("Rows :"+ rows);
 		callback(false,rows);
 	});
-	});
+	
 } ; 
     

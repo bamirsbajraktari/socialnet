@@ -8,7 +8,7 @@ exports.index = function(req, res){
         var profile = require('../functions/profileFunctions');
        profile.getUserInfo(req.session.username,function(err,user){
            console.log(user);
-          res.render("profile",{user:user}); 
+          res.render("index",{user:user}); 
            
        });
 		
