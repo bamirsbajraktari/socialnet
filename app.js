@@ -9,8 +9,8 @@ var express = require('express')
   , profile = require('./routes/profile')
   , welcome = require('./routes/welcome')
   , login = require('./routes/loginsubmit')
-   ,logout = require('./routes/logout')
-   ,headers = require('./routes/headers')
+  ,logout = require('./routes/logout')
+  ,headers = require('./routes/headers')
   , http = require('http')
   , path = require('path');
 

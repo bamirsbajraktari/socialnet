@@ -7,7 +7,8 @@ var mysql=require('mysql');
 
 
 var pool=mysql.createPool({
-	host:"192.168.1.5",
+	host:"80.78.68.112",
+    port:"21034",
 	user:"socialnet",
 	password:"socialnet2016",
 	database:"socialnet"
