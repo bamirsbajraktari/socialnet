@@ -16,7 +16,47 @@ $(function(){
         };
     });
     */
+   
+    $("#sharenewpost").click(function(){
+       //data = new FormData(); 
+       // data.append( 'file', $( '#feed-share-img' )[0].files[0] );
+     var data = new FormData();
+$.each($('#feed-share-img')[0].files, function(i, file) {
+    data.append('file-'+i, file);
+});
+    var request=$.ajax({
+		method:"POST",
+		url:"/upload-image",
+		data:data,
+        contentType: false ,
+        encType:"multipart/form-data",
+        processData: false
+	});	
+        request.done(function(msg){
+            
+            alert("msg");
+        });
+        
+    });
     
+    
+ function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+           // $('#blah').attr('src', e.target.result);
+            $(".feed-upload-img-prev").html("<img src='"+e.target.result+"' style='height:100px;'>");
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}      
+ 
+   $("#feed-share-img").change(function(){
+    readURL(this);
+}); 
     
 /*open menu of user on header bar*/    
 $(".header-profile-img").click(function(e){

@@ -745,3 +745,8 @@ text-decoration:none;
 	animation-duration:0.5s;
   animation-name: fadeInDown;
 }
+#feed-share-img{
+	width:25px;
+	opacity:0;
+	background-color:white;
+}

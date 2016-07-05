@@ -11,6 +11,7 @@ var express = require('express')
   , login = require('./routes/loginsubmit')
    ,logout = require('./routes/logout')
    ,headers = require('./routes/headers')
+,uploadImage = require('./routes/upload-image')
   , http = require('http')
   , path = require('path');
 
@@ -22,7 +23,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.favicon());
 app.use(express.logger('dev'));
-app.use(express.bodyParser());
+app.use(express.bodyParser({ keepExtensions: true, uploadDir: __dirname + '/uploads' }));
 app.use(express.cookieParser() );
 app.use(express.session({secret:'123456789abcdef'}));
 app.use(express.methodOverride());
@@ -42,6 +43,7 @@ app.get('/profile', profile.renderUser);
 app.get('/welcome', welcome.render);
 app.get('/logout', logout.logout);
 app.post('/loginsubmit', login.login);
+app.post('/upload-image', uploadImage.upload);
 app.get('/:username', headers.check);
 
 http.createServer(app).listen(app.get('port'), function(){
