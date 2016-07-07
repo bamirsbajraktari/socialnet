@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 exports.showprofile = function(req, res){
 	if(req.session.username != null){
         var profile = require('../functions/profileFunctions');
@@ -15,24 +15,4 @@ exports.showprofile = function(req, res){
  
 };
 
-=======
-/**
- * New node file
- * 
- */
-var db=require("../dbconn.js");
-var async = require("async");
-exports.renderUser=function(req,res,next){
 
-    
-    
-
-    
-res.send("profili");
-    
-
-};
-
-
-
->>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755

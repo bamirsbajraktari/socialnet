@@ -4,7 +4,7 @@ var path=require("path");
 const imagemin = require('imagemin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const imageminPngquant = require('imagemin-pngquant');
-var sharp = require('sharp');
+//var sharp = require('sharp');
 
 exports.uploadfile=function(req,res){
     var files=[];
@@ -49,7 +49,7 @@ imagemin([file.path], 'uploads/media', {
     
     }else{// one file
         // optimization  
-        /* imagemin optimization
+        
 imagemin([files.path], 'uploads/media', {
 	plugins: [
 		imageminMozjpeg({targa: true}),
@@ -64,9 +64,9 @@ imagemin([files.path], 'uploads/media', {
     
 
    
-}); imagemin optimization*/ 
+});
         
-        
+    /*    
      var fileName=uuid.v4()+path.extname(files.name);   
     sharp(files.path+"/"+files.name)
   .resize(1000,1000)
@@ -76,7 +76,7 @@ imagemin([files.path], 'uploads/media', {
   .toFile('./uploads/media/'+fileName, function(err,info) {
     // output.jpg is a 300 pixels wide and 200 pixels high image
     // containing a scaled and cropped version of input.jpg
-  });
+  });*/
         
         
         

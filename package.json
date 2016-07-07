@@ -10,7 +10,6 @@
     "ejs": "*",
     "express": "3.2.6",
     "express-session": "^1.13.0",
-<<<<<<< HEAD
     "graceful-fs": "^4.1.4",
     "imagemin": "^5.2.2",
     "imagemin-mozjpeg": "^6.0.0",
@@ -18,9 +17,6 @@
     "mysql": "^2.11.1",
     "node-gyp": "^3.4.0",
     "node-uuid": "^1.4.7"
-=======
-    "mysql": "^2.11.1"
->>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
   },
   "description": "Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)\r  ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))",
   "main": "app.js",
