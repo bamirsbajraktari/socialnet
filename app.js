@@ -11,6 +11,7 @@ var express = require('express')
   , login = require('./routes/loginsubmit')
   ,logout = require('./routes/logout')
   ,headers = require('./routes/headers')
+ ,upload = require('./functions/uploadFile')
   , http = require('http')
   , path = require('path');
 
@@ -38,10 +39,11 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/profile', profile.renderUser);
+app.get('/profile', profile.showprofile);
 app.get('/welcome', welcome.render);
 app.get('/logout', logout.logout);
 app.post('/loginsubmit', login.login);
+app.post('/uploadfile', upload.uploadfile);
 app.get('/:username', headers.check);
 
 http.createServer(app).listen(app.get('port'), function(){

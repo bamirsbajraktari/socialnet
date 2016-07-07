@@ -80,6 +80,9 @@ font-family: 'Roboto', sans-serif;
     color:#333;
     line-height: 1.5;
     margin: 0px;
+    padding:0px;
+    overflow-y: hidden;
+    overflow-x: auto;
 }
 
 .topBar{
@@ -252,28 +255,28 @@ max-width:300px;
 }
 
 .wrapper-base{
-     position: absolute;
-    /* max-width: 1250px; */
-    /* width: 100%; */
-    min-width: 1000px;
-    /* margin: 0px auto; */
-    padding-top: 20px;
-    /* position: absolute; */
-    top: 51px;
+    position: absolute;
+    top:51px;
+    left:0px;
+    right:0px;
     bottom: 0px;
-    overflow: auto;
-    left: 0px;
-    right: 0px;
-    z-index: -1;
+     min-width: 1000px;
+    width:100%;
+   
+  overflow: auto;
+    overflow-x: hidden;
+    margin:0px;
+    padding-top:20px;
+    
 }
 .wraper-scroller{
       max-width: 1250px;
-    /*min-width: 1000px;*/
+    min-width: 980px;
     /*! height:400px; */
     width:100%;
     overflow: auto;
-    margin:0px auto;
     overflow-x: hidden;
+    margin:0px auto;
 }
 .left-side-column{
 float:left;
@@ -309,8 +312,7 @@ margin:0px 0px 20px 0px;
 border-radius: 4px;
 background-color: #fff;
 border:1px solid #eff0f2;
-/*-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.4);
--moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.4);
+
 /*! box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.4); */
 }
 
@@ -444,7 +446,7 @@ border-right: 1px solid #ccc;
     border:1px solid #efefef;
     outline: none;
     resize:none;
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
     padding: 10px;
     font-size: 12px;
     line-height: 14px;
@@ -561,8 +563,9 @@ padding:5px;
 
 .avatar-com {
     width: 35px;
+    height:35px;
     position: absolute;
-    /*top:1px;*/
+    top:0px;
 }
 .comments{
     position: relative;
@@ -578,7 +581,7 @@ align-items: right;
 padding: 0 33px 0 33px;
 width: 100%;
 overflow-y: visible;
-padding-bottom: 10px;
+/*padding-bottom: 10px;*/
 }
 .single-com h4{
     margin:0;
@@ -589,11 +592,10 @@ width: 100%;
 border: 1px solid #efefef;
 outline: none;
 resize: none;
-margin-bottom: 5px;
+/*margin-bottom: 5px;*/
 padding: 10px;
 font-size: 12px;
 line-height: 14px;
-    border-radius: 1px;
 color: #414141;
 height:35px;
 }
@@ -606,7 +608,7 @@ height: 35px;
 border-radius: 0px 5px 5px 0px;
 padding:4px;
 margin-top:1px;
-bottom: 20px;
+bottom: 5px;
 }
 .comment-view{
     padding: 0px 40px 0px 40px;
@@ -629,7 +631,7 @@ height:14px;
 
 .auth-links{
 width:100%; 
- overflow:auto;
+ overflow:visible;
  position:relative;
 }
 
@@ -648,10 +650,102 @@ margin-right:35px;
  right:0;
  top:11px;
  border-radius:4px;
- overflow:hidden;
+ overflow:visible;
+    cursor: pointer;
 }
 .header-profile-img img{
- width:30px;
- height:30px;
- 
+ width:28px;
+ height:28px;
+  border-radius:4px;
+}
+
+
+/*profile img nav*/
+
+.profile-img-nav{
+	display:none;
+	position:absolute;
+	top:42px;
+	right:-9px;
+	z-index:600;
+	background-color:white;
+	border-radius:3px;
+	border:1px solid #ddd;
+	padding:10px 0px 10px 0px;
+	box-shadow:-1px 1px 0px 1px rgba(222,222,222,0.3);
+}
+.profile-img-nav::before{
+	width: 15px;
+	height: 15px;
+	top:-9px;
+	right:13px;
+	background-color:white;
+	border:0;
+	border-left:1px solid #ddd;
+	border-top:1px solid #ddd;
+	position:absolute;
+	-ms-transform: rotate(45deg); /* IE 9 */
+	-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+	transform: rotate(45deg);
+	content:"";
+	border-top-left-radius:4px;
+}
+.profile-img-nav-ul{
+	display:block;
+
+width:100%;
+padding:0px;
+margin:0px !important;
+}
+.profile-img-nav-ul li{
+	list-style:none;
+	display:block;
+
+width:100%;
+padding:0px;
+margin:0px !important;
+
+}
+.profile-img-nav-ul li a{
+	list-style:none;
+	display:block;
+font-size:13px;
+width:100%;
+padding:0px;
+margin:0px !important;
+padding:3px 30px 3px 30px;
+text-align:right;
+/*width:120px;*/
+color:#666;
+border-top:1px solid #fff;
+border-bottom:1px solid #fff;
+text-decoration:none;
+}
+.profile-img-nav-ul li a:hover{
+	background-color:#eee;
+	border-top-color:#ddd;
+		border-bottom-color:#ddd;
+	transition:all 0.25s ease-in-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -5%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInDown {
+	display:block;
+	animation-duration:0.5s;
+  animation-name: fadeInDown;
+}
+#shareImg{
+    width:28px;
+    height:28px;
 }

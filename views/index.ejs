@@ -1,11 +1,200 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Socialnet - We connect people</title>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+	 <script src="javascript/jquery-2.2.4.min.js"></script>
+    <script src="javascript/basescript.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+  <div class="topBar">
+      <div class="tb-center">
+          <div class="tb-col1of3">
+      <div class="tb-logo"><h2 style="margin-top:0px;color:#222;font-weight:400">Social<a style="text-decoration:none;" href="#"><span style="color:#FF200D; font-weight:700">NET</span></h2></a></div>
+               <div class="tb-menus">
+          <ul class="u-list">
+              <li class="tb-link"><a href="#"><img class="icon icons8-Binoculars" src="images/discover.png" width="28">Discover</a></li>
+              <li class="tb-link"><a href="#"><img class="icon icons8-Chevron" src="images/on-top.png" width="28">On Top</a></li>
+          </ul></div>
+          </div>
+      <div class="tb-col2of3">
+            <div class="tb-search"><input type="search" placeholder="Search"></div>
+          </div>    
+     
+          <div class="tb-col3of3">
+          <div class="auth-links">
+              
+              <ul class="u-list">
+              <li class="tb-link"><a href="#"><img class="icon icons8-Lock" src="images/message.png" width="28">Messages</a></li>
+              <li class="tb-link"><a href="#"><img class="icon icons8-Add-User-Male" src="images/notifications.png" width="28">Notifications</a></li>
+          </ul>
+              <div class="header-profile-img">
+			  <img src="images/profile.png" id="header-prof-img"/><!--top right profile image-->
+                  
+                   <div class="profile-img-nav" id="header-nav">
+                       <ul class="profile-img-nav-ul">
+                           <li><a href="/profile">Profile</a></li>
+                           <li><a href="#">Settings</a></li>
+                           <li><a href="/logout">Logout</a></li>
+                       </ul>
+			       </div>
+                  
+			  </div><!-- top right profile image-->
+              </div>
+        
+          </div>
+      </div>
+      </div><!--TopBar div-->    
+      <div class="wrapper-base">
+      <div class="wraper-scroller">
+          
+        <div class="left-side-column columns">
+          <div class="profile-tile-container">
+            <div class="ptc-images">
+              <div class="ptc-cover" style="background:url('../images/<%= user[0].coverImgURL %>');background-position:center;background-repeat: no-repeat;background-size: cover;">
+              </div>
+              <div class="ptc-profileimg" style="background:url('../images/<%= user[0].profileImgURL %>');background-position:center;background-repeat: no-repeat;background-size: cover;">
+              </div>
+            </div>  
+              <div class="ptc-info">
+                <h3></h3>
+                <p class="quote">The best preparation for tomorrow is doing your best today</p>
+                <ul class="friends-count">
+                  <li id="first-li"><a>Friends <h2>12M</h2></a></li>
+                     <li><a>Enemies <h2>10</h2></a></li>
+                </ul>
+              </div>
+          </div>
+		  <!-- bio --->
+		  <div class="about-container">
+          <h3 class="ald">About <small><a class="edit" href="#"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI2OC43MjUgMjY4LjcyNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjY4LjcyNSAyNjguNzI1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxnIGlkPSJFZGl0Ij4KCTxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDsiIGQ9Ik0xNjEuMzU5LDU2LjMzN2MtNy4wNDEtNy4wNDktMTguNDU4LTcuMDQ5LTI1LjQ5OCwwbC02LjM3NCw2LjM4MSAgIGwtODkuMjQzLDg5LjMzN2wwLjAyMywwLjAyM2wtMi44MTIsMi44MmMwLDAtOC45NjgsOS4wMzItMjkuMjE2LDc0LjM5OWMtMC4xNDIsMC40NTctMC4yODMsMC45MTEtMC40MjYsMS4zNzQgICBjLTAuMzYxLDEuMTcxLTAuNzI2LDIuMzYxLTEuMDk0LDMuNTY3Yy0wLjMyNiwxLjA2Ni0wLjY1NiwyLjE1NC0wLjk4NywzLjI0OWMtMC4yNzksMC45MjMtMC41NTYsMS44MzYtMC44MzksMi43NzkgICBjLTAuNjQyLDIuMTQtMS4yOTIsNC4zMTgtMS45NTUsNi41NjdjLTEuNDU1LDQuOTM3LTUuMDA5LDE2LjA3LTAuOTksMjAuMWMzLjg3LDMuODgyLDE1LjEyLDAuNDY3LDIwLjA0My0wLjk5MyAgIGMyLjIzMi0wLjY2Miw0LjM5NS0xLjMxMSw2LjUxOS0xLjk1MmMwLjk4MS0wLjI5NiwxLjkzMi0wLjU4NiwyLjg5MS0wLjg3OGMxLjAzMS0wLjMxNCwyLjA1Ny0wLjYyNiwzLjA2Mi0wLjkzNSAgIGMxLjI2OS0wLjM5LDIuNTItMC43NzUsMy43NS0xLjE1N2MwLjM2Ny0wLjExNCwwLjcyNy0wLjIyNywxLjA5MS0wLjM0YzYyLjE5Mi0xOS4zNjUsNzMuMzU3LTI4LjQ1Myw3NC4yODUtMjkuMjg0ICAgYzAuMDA3LTAuMDA1LDAuMDA3LTAuMDA1LDAuMDEyLTAuMDFjMC4wMzktMC4wMzYsMC4wNjYtMC4wNiwwLjA2Ni0wLjA2bDIuODc5LTIuODg2bDAuMTkzLDAuMTkzbDg5LjI0NS04OS4zMzdsLTAuMDAxLTAuMDAxICAgbDYuMzc0LTYuMzgxYzcuMDQxLTcuMDQ4LDcuMDQxLTE4LjQ3NiwwLTI1LjUyNUwxNjEuMzU5LDU2LjMzN3ogTTEwMy4zOTksMjE5Ljc4MmMtMC4wNzgsMC4wNTMtMC4xODQsMC4xMjItMC4yOTYsMC4xOTMgICBjLTAuMDYyLDAuMDQtMC4xMzcsMC4wODctMC4yMTEsMC4xMzNjLTAuMDc1LDAuMDQ3LTAuMTU3LDAuMDk4LTAuMjQ0LDAuMTUxYy0wLjA3NywwLjA0Ny0wLjE1NywwLjA5NS0wLjI0MywwLjE0NyAgIGMtMi45NjksMS43NzctMTEuNjgyLDYuMzYyLTMyLjgyOCwxNC4wMTdjLTIuNDcxLDAuODk0LTUuMTYyLDEuODQyLTcuOTgxLDIuODE5bC0zMC4wNi0zMC4wOTFjMC45OC0yLjg0LDEuOTI5LTUuNTUxLDIuODI2LTguMDQxICAgYzcuNjM4LTIxLjIzNSwxMi4yMTktMjkuOTc0LDEzLjk4Ni0zMi45MzljMC4wNDMtMC4wNzEsMC4wODItMC4xMzYsMC4xMjEtMC4yYzAuMDYyLTAuMTAyLDAuMTItMC4xOTcsMC4xNzQtMC4yODQgICBjMC4wNDMtMC4wNjksMC4wODgtMC4xNDEsMC4xMjYtMC4yYzAuMDcxLTAuMTExLDAuMTQtMC4yMTcsMC4xOTMtMC4yOTZsMi4yLTIuMjA2bDU0LjQ4NSw1NC41NDJMMTAzLjM5OSwyMTkuNzgyeiBNMjYzLjM1MSw1Ni4zMzcgICBsLTUwLjk5Ny01MS4wNWMtNy4wNDEtNy4wNDgtMTguNDU2LTcuMDQ4LTI1LjQ5OCwwbC0xMi43NDgsMTIuNzYzYy03LjA0MSw3LjA0OC03LjA0MSwxOC40NzYsMCwyNS41MjRsNTAuOTk2LDUxLjA1ICAgYzcuMDQsNy4wNDgsMTguNDU3LDcuMDQ4LDI1LjQ5OCwwbDEyLjc0OS0xMi43NjJDMjcwLjM5Miw3NC44MTMsMjcwLjM5Miw2My4zODUsMjYzLjM1MSw1Ni4zMzd6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" /></a></small></h3>
+          <p><img height="12px" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDQzMC4xMTQgNDMwLjExNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDMwLjExNCA0MzAuMTE0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggaWQ9IkZhY2Vib29rX1BsYWNlcyIgZD0iTTM1Ni4yMDgsMTA3LjA1MWMtMS41MzEtNS43MzgtNC42NC0xMS44NTItNi45NC0xNy4yMDVDMzIxLjc0NiwyMy43MDQsMjYxLjYxMSwwLDIxMy4wNTUsMCAgIEMxNDguMDU0LDAsNzYuNDYzLDQzLjU4Niw2Ni45MDUsMTMzLjQyN3YxOC4zNTVjMCwwLjc2NiwwLjI2NCw3LjY0NywwLjYzOSwxMS4wODljNS4zNTgsNDIuODE2LDM5LjE0Myw4OC4zMiw2NC4zNzUsMTMxLjEzNiAgIGMyNy4xNDYsNDUuODczLDU1LjMxNCw5MC45OTksODMuMjIxLDEzNi4xMDZjMTcuMjA4LTI5LjQzNiwzNC4zNTQtNTkuMjU5LDUxLjE3LTg3LjkzM2M0LjU4My04LjQxNSw5LjkwMy0xNi44MjUsMTQuNDkxLTI0Ljg1NyAgIGMzLjA1OC01LjM0OCw4LjktMTAuNjk2LDExLjU2OS0xNS42NzJjMjcuMTQ1LTQ5LjY5OSw3MC44MzgtOTkuNzgyLDcwLjgzOC0xNDkuMTA0di0yMC4yNjIgICBDMzYzLjIwOSwxMjYuOTM4LDM1Ni41ODEsMTA4LjIwNCwzNTYuMjA4LDEwNy4wNTF6IE0yMTQuMjQ1LDE5OS4xOTNjLTE5LjEwNywwLTQwLjAyMS05LjU1NC01MC4zNDQtMzUuOTM5ICAgYy0xLjUzOC00LjItMS40MTQtMTIuNjE3LTEuNDE0LTEzLjM4OHYtMTEuODUyYzAtMzMuNjM2LDI4LjU2LTQ4LjkzMiw1My40MDYtNDguOTMyYzMwLjU4OCwwLDU0LjI0NSwyNC40NzIsNTQuMjQ1LDU1LjA2ICAgQzI3MC4xMzgsMTc0LjcyOSwyNDQuODMzLDE5OS4xOTMsMjE0LjI0NSwxOTkuMTkzeiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+		  From Shkodra</p>
+		  <p><img height="12px" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUwMi42ODYgNTAyLjY4NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTAyLjY4NiA1MDIuNjg2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxnPgoJPGc+CgkJPHBvbHlnb24gcG9pbnRzPSIxODMuMTksMzI3Ljg1NCA3NS45NjIsMzUxLjYyNSAzMy44MzQsNTAyLjY2NCAyMTguNDE1LDUwMi42NjQgMjM3Ljc0MiwzNDEuMDM0ICAgICAyMDUuMTcxLDMwNS43ODcgICAiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cG9seWdvbiBwb2ludHM9IjQyNi42ODEsMzUxLjYyNSAzMTkuMzY2LDMyNy44NTQgMjk3LjM0MiwzMDUuODA5IDI2NC44NzgsMzQxLjA1NiAyODQuMTg0LDUwMi42ODYgICAgIDQ2OC44NTIsNTAyLjY4NiAgICIgZmlsbD0iIzAwMDAwMCIvPgoJCTxwYXRoIGQ9Ik0yNTEuMzMyLDE3MC4wNjRjNzIuNTg2LDAsMTMxLjQwOS03LjI5MSwxMzEuNDA5LTE2LjMwOGMwLTEuOTQxLTMuMjM2LTMuODQtOC40OTktNS41NjUgICAgQzM3MC4yNzMsODEuNjQ1LDM3MC42ODMsMCwyNTEuMzc1LDBTMTMyLjQzNCw4MS42NDUsMTI4LjUwOCwxNDguMTdjLTUuMjg1LDEuNzQ3LTguNTY0LDMuNjQ1LTguNTY0LDUuNTg3ICAgIEMxMTkuOTQ0LDE2Mi43NzMsMTc4LjgxMSwxNzAuMDY0LDI1MS4zMzIsMTcwLjA2NHoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMzYwLjk1NSwxNzkuOTQzYy0yMy45NjUsMy45MDQtNjEuMzksNi40MjgtMTAzLjkyOCw2LjQyOGMtNTAuMTA5LDAtOTMuMjI5LTMuNDk0LTExNS4yOTYtOC42MDcgICAgYzcuNzg3LDY5LjE1Niw1My42NjgsMTIyLjU0NCwxMDkuNzk1LDEyMi41NDRDMzA2Ljk4NSwzMDAuMjY1LDM1Mi4zMDUsMjQ4LjAyMSwzNjAuOTU1LDE3OS45NDN6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+Cgk8Zz4KCTwvZz4KCTxnPgoJPC9nPgoJPGc+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+		  Worked at Opportunity</p>
+          <p><img height="12px" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDU0Ny41OTYgNTQ3LjU5NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTQ3LjU5NiA1NDcuNTk2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTU0MC43NiwyNTQuNzg4TDI5NC41MDYsMzguMjE2Yy0xMS40NzUtMTAuMDk4LTMwLjA2NC0xMC4wOTgtNDEuMzg2LDBMNi45NDMsMjU0Ljc4OCAgIGMtMTEuNDc1LDEwLjA5OC04LjQxNSwxOC4yODQsNi44ODUsMTguMjg0aDc1Ljk2NHYyMjEuNzczYzAsMTIuMDg3LDkuOTQ1LDIyLjEwOCwyMi4xMDgsMjIuMTA4aDkyLjk0N1YzNzEuMDY3ICAgYzAtMTIuMDg3LDkuOTQ1LTIyLjEwOCwyMi4xMDktMjIuMTA4aDkzLjg2NWMxMi4yMzksMCwyMi4xMDgsOS43OTIsMjIuMTA4LDIyLjEwOHYxNDUuODg2aDkyLjk0NyAgIGMxMi4yNCwwLDIyLjEwOC05Ljk0NSwyMi4xMDgtMjIuMTA4di0yMjEuODVoNzUuOTY1QzU0OS4wMjEsMjcyLjk5NSw1NTIuMDgxLDI2NC44ODYsNTQwLjc2LDI1NC43ODh6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+		  Live in Chicago USA</p>
+        
+          </div>
+          
+          
+          </div>
+          
+          
+          <!-- center div -->
+          <div class="center-column columns">
+          
+          <div class="new-post-cont">
+              <form id="sharepostform" method="post" enctype="multipart/form-data" action="/uploadFile">
+            <div class="avatar">
+                  <img src="images/profile-post.png">
+            </div>
+            <div class="newpost">
+              <textarea rows="2" placeholder="What's on your mind?"></textarea>
+            </div>
+			<!-- All share -->
+			<div class="all-share">
+			 
+			 <div class="photo-video-link">
+			    
+				<div class="photo-sh">
+                    <input type="file" name="shareImg" id="shareImg" multiple>
+			    </div>
+			    
+				<div class="video-sh">
+			    </div>
+			   
+			   <div class="link-sh">
+			    </div>
+				
+			 </div>
+			 
+			 <div class="share">
+			   <button id="sharePostSubmit">Share</button>
+			 </div>
+			 
+			</div>
+                  </form>
+			<!-- All share -->
+          </div>
+		  
+          <div class="new-post-cont">
+		  <div class="avatar">
+                  <img src="images/prof3.jpg">
+            </div>
+			<div class="newpost">
+			  <div class="post-name">
+			  <h3>Allen Williams</h3>
+			  </div>
+			  <div class="post-text">
+              Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+              </div>
+			  <div class="like-share">
+			  	 <div class="plike lcsh">
+				 <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4Ny41NyA0ODcuNTciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ4Ny41NyA0ODcuNTc7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8cGF0aCBkPSJNMTM3LjQ4MiwyNTMuOGMwLjctMiwxLjUtNC4yLDIuNC02LjVsMCwwbDAsMGMzLjgtOS40LDEwLjEtMjAuOSwxOS45LTMxLjJjNDYtMzUuMyw5NC4yLTE2OCw5NC4yLTE2OHMtNy41LTQ4LjEsMTUtNDguMSAgIHM3NiwxNSw0My45LDExMi4zYy0zMi4xLDk3LjQsMCw4Mi40LDAsODIuNGM3LjQtMS43LDE0LjItMy4xLDIwLjctNC4ybDAsMGMwLDAsOTIuNy0yMC44LDEyNi45LDEwLjVjMjcuNCwyNSw2LjEsNTgsNi4xLDU4ICAgczM4LjUsMzQuMy0wLjcsNzUuM2MwLDAsMjUuMSw0MS41LTE5LDc0LjZjMCwwLDIwLjUsNTcuMS02MS40LDc0LjVjLTI0LjEsNS4xLTU0LjQsNC45LTgzLDIuN2MtNzEuNSwxLjUtMTQyLjYtNy44LTE0Mi42LTcuOCAgIGwtNDYtMjAwLjFDMTI3Ljc4MiwyNjkuOCwxMzQuMzgyLDI2MC4xLDEzNy40ODIsMjUzLjh6IE00LjE4MiwyODFsLTAuMSwyMDBoMTA4LjdjOS43LDAsMTYtNy43LDE0LTE3LjJsLTM0LjgtMTY1LjYgICBjLTItOS41LTExLjUtMTcuMi0yMS4yLTE3LjJMNC4xODIsMjgxTDQuMTgyLDI4MXoiIGZpbGw9IiMwMDAwMDAiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+				 Like
+                 </div>
+				 <div class="pcomment lcsh">
+				 <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8cGF0aCBkPSJNNiwyaDQ4YzMuMjUyLDAsNiwyLjc0OCw2LDZ2MzNjMCwzLjI1Mi0yLjc0OCw2LTYsNkgyNS40NDJMMTUuNzQsNTcuNjczQzE1LjU0Niw1Ny44ODUsMTUuMjc2LDU4LDE1LDU4ICBjLTAuMTIxLDAtMC4yNDMtMC4wMjItMC4zNjEtMC4wNjdDMTQuMjU0LDU3Ljc4NCwxNCw1Ny40MTMsMTQsNTdWNDdINmMtMy4yNTIsMC02LTIuNzQ4LTYtNkwwLDhDMCw0Ljc0OCwyLjc0OCwyLDYsMnoiIGZpbGw9IiMwMDAwMDAiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+				 Comment
+                 </div>
+				 <div class="pshare lcsh">
+				 <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ3Ny44IDQ3Ny44IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NzcuOCA0NzcuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxwYXRoIGlkPSJYTUxJRF8yMDc0XyIgZD0iTTM2Ny43NSwyODguNWMtMjUsMC00Ny44LDkuNy02NC43LDI1LjVsLTY1LjItMzkuNGMzLjctMTEuMiw1LjctMjMuMSw1LjctMzUuNmMwLTEyLjQtMi0yNC40LTUuNy0zNS42ICAgbDY1LjMtMzkuNWMxNi45LDE1LjgsMzkuNywyNS41LDY0LjcsMjUuNWM1Mi4zLDAsOTQuNy00Mi40LDk0LjctOTQuN1M0MjAuMTUsMCwzNjcuODUsMHMtOTQuNyw0Mi40LTk0LjcsOTQuNyAgIGMwLDguNywxLjIsMTcuMiwzLjQsMjUuMmwtNjUuMywzOS41Yy0yMC43LTIxLjMtNDkuOC0zNC42LTgxLjktMzQuNmMtNjMsMC0xMTQuMSw1MS4xLTExNC4xLDExNC4xUzY2LjM1LDM1MywxMjkuMzUsMzUzICAgYzMyLjEsMCw2MS4xLTEzLjMsODEuOS0zNC42bDY1LjMsMzkuNWMtMi4yLDgtMy40LDE2LjUtMy40LDI1LjJjMCw1Mi4zLDQyLjQsOTQuNyw5NC43LDk0LjdzOTQuNy00Mi40LDk0LjctOTQuNyAgIFM0MjAuMDUsMjg4LjUsMzY3Ljc1LDI4OC41eiBNOTIuMTUsMjM5YzAsOS40LTcuNiwxNy0xNywxN2MtOS40LDAtMTctNy42LTE3LTE3YzAtMzkuMywzMi03MS4zLDcxLjMtNzEuM2M5LjQsMCwxNyw3LjYsMTcsMTcgICBzLTcuNiwxNy0xNywxN0MxMDguODUsMjAxLjgsOTIuMTUsMjE4LjUsOTIuMTUsMjM5eiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+				 Share
+                 </div>
+                 				 
+			  </div>
+
+			  
+			<div class="comments">
+			  <div class="avatar-com">
+                  <img src="images/profile.png">
+              </div>
+              <div class="single-com">
+                  <textarea rows="1" placeholder="Write a comment.."></textarea>
+              <div class="send">
+			    <a href=""><img class="icon icons8-Sent" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABh0lEQVRIS8WW642DMBCEYx51JKWkDcQjohOuA+jAiAagA66DXAekg9xvXjeLRORDhMPGB0iIP8jfeMa7a3Y66GEHcU8sy7KoaZo4DMPnniII3BOw73tummbiuu59DwEvsAC7M8Ziz/PS/xQwBx54cOBJAizLSh3HqXSLeAsWQRQDRKS+75e6BKwCjzAIqAzDiOq6LrYeRimwIIAqgNu2najGoASe2J13Xcdvt1shE4MO8HgYKzqM6Anpmhi0gScx5IjhYykGAl9xaC5Qe8H3Sl8scpaxbeHfEuvxuZ7wtlfrFETVQAIQQzLGID0ktgoaW7MSGOrPFA8sfsUkEU2KXhAvWr0RIGp5UN2LU3A4XBoBvzYOVz4JGAQBnzqivZwA+MabY7hEf5XTMI81PA/sMG7blu/SQAArqFQwuXIZ8apWk50cdsZ7DQmyM4Kd+Ro7lxxYu2O6BpGdpYydqmCyk64+XNVOWfAXnc652tO1W1pHtHpoZXteb4+50Ou0T2Yt6ekks/jSvz+RfwtsvarPEgAAAABJRU5ErkJggg==" width="28" height="28"></a>
+			  </div>
+			 </div>
+			  
+			</div>
+			<div class="comments-container">
+			  <div class="comments">
+			  <div class="avatar-com">
+                  <img src="images/prof2.jpg">
+              </div>
+              <div class="single-com comment-view">
+			  <h4>Allen Williams</h4>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. 
+              </div>
+            </div>
+			</div>
+			</div>
+			
+			
+			
+			
+		  </div>
+          
+          </div>
+          <div class="right-side-column columns">
+		    <div class="advertising">
+		    <h3>Advertising</h3>
+			<img style="margin-left:-2px" width="299px" src="images/ads1.png"/>
+     	    </div>
+			
+			<div class="advertising">
+		    <h3>Advertising</h3>
+			<img style="margin-left:-2px" width="299px" src="images/ads2.jpg"/>
+     	    </div>
+			
+			<div class="advertising">
+		    <h3>Advertising</h3>
+			<img style="margin-left:-2px" width="299px" src="images/ads3.jpg"/>
+     	    </div>
+		  </div>
+          </div>
+      </div>
+      
+</body>
 </html>
