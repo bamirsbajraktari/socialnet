@@ -3,8 +3,31 @@
   <head>
     <title>Socialnet - We connect people</title>
     <link rel='stylesheet' href='stylesheets/style.css' />
+<<<<<<< HEAD
 	 <script src="javascript/jquery-2.2.4.min.js"></script>
     <script src="javascript/basescript.js"></script>
+=======
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script>
+$(function() {
+    //  changes mouse cursor when highlighting loawer right of box
+    $(document).on('mousemove', 'textarea', function(e) {
+		var a = $(this).offset().top + $(this).outerHeight() - 16,	//	top border of bottom-right-corner-box area
+			b = $(this).offset().left + $(this).outerWidth() - 16;	//	left border of bottom-right-corner-box area
+		$(this).css({
+			cursor: e.pageY > a && e.pageX > b ? 'nw-resize' : ''
+		});
+	})
+    //  the following simple make the textbox "Auto-Expand" as it is typed in
+    .on('keyup', 'textarea', function(e) {
+        //  the following will help the text expand as typing takes place
+        while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
+            $(this).height($(this).height()+1);
+        };
+    });
+});
+	</script>
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
   </head>
   <body>
   <div class="topBar">
@@ -29,6 +52,7 @@
               <li class="tb-link"><a href="#"><img class="icon icons8-Add-User-Male" src="images/notifications.png" width="28">Notifications</a></li>
           </ul>
               <div class="header-profile-img">
+<<<<<<< HEAD
 			  <img src="images/profile.png" id="header-prof-img"/><!--top right profile image-->
                   
                    <div class="profile-img-nav" id="header-nav">
@@ -40,6 +64,10 @@
 			       </div>
                   
 			  </div><!-- top right profile image-->
+=======
+			  <img src="images/<%= user[0].profileImgURL %>"/>
+			  </div>
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
               </div>
         
           </div>
@@ -57,7 +85,11 @@
               </div>
             </div>  
               <div class="ptc-info">
+<<<<<<< HEAD
                 <h3></h3>
+=======
+                <h3><%= user[0].firstname+" "+user[0].lastname %></h3>
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
                 <p class="quote">The best preparation for tomorrow is doing your best today</p>
                 <ul class="friends-count">
                   <li id="first-li"><a>Friends <h2>12M</h2></a></li>

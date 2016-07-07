@@ -80,9 +80,12 @@ font-family: 'Roboto', sans-serif;
     color:#333;
     line-height: 1.5;
     margin: 0px;
+<<<<<<< HEAD
     padding:0px;
     overflow-y: hidden;
     overflow-x: auto;
+=======
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
 }
 
 .topBar{
@@ -255,6 +258,7 @@ max-width:300px;
 }
 
 .wrapper-base{
+<<<<<<< HEAD
     position: absolute;
     top:51px;
     left:0px;
@@ -277,6 +281,30 @@ max-width:300px;
     overflow: auto;
     overflow-x: hidden;
     margin:0px auto;
+=======
+     position: absolute;
+    /* max-width: 1250px; */
+    /* width: 100%; */
+    min-width: 1000px;
+    /* margin: 0px auto; */
+    padding-top: 20px;
+    /* position: absolute; */
+    top: 51px;
+    bottom: 0px;
+    overflow: auto;
+    left: 0px;
+    right: 0px;
+    z-index: -1;
+}
+.wraper-scroller{
+      max-width: 1250px;
+    /*min-width: 1000px;*/
+    /*! height:400px; */
+    width:100%;
+    overflow: auto;
+    margin:0px auto;
+    overflow-x: hidden;
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
 }
 .left-side-column{
 float:left;
@@ -312,7 +340,12 @@ margin:0px 0px 20px 0px;
 border-radius: 4px;
 background-color: #fff;
 border:1px solid #eff0f2;
+<<<<<<< HEAD
 
+=======
+/*-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.4);
+-moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.4);
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
 /*! box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.4); */
 }
 
@@ -446,7 +479,11 @@ border-right: 1px solid #ccc;
     border:1px solid #efefef;
     outline: none;
     resize:none;
+<<<<<<< HEAD
     /*margin-bottom: 5px;*/
+=======
+    margin-bottom: 5px;
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
     padding: 10px;
     font-size: 12px;
     line-height: 14px;
@@ -563,9 +600,14 @@ padding:5px;
 
 .avatar-com {
     width: 35px;
+<<<<<<< HEAD
     height:35px;
     position: absolute;
     top:0px;
+=======
+    position: absolute;
+    /*top:1px;*/
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
 }
 .comments{
     position: relative;
@@ -581,7 +623,11 @@ align-items: right;
 padding: 0 33px 0 33px;
 width: 100%;
 overflow-y: visible;
+<<<<<<< HEAD
 /*padding-bottom: 10px;*/
+=======
+padding-bottom: 10px;
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
 }
 .single-com h4{
     margin:0;
@@ -592,10 +638,18 @@ width: 100%;
 border: 1px solid #efefef;
 outline: none;
 resize: none;
+<<<<<<< HEAD
 /*margin-bottom: 5px;*/
 padding: 10px;
 font-size: 12px;
 line-height: 14px;
+=======
+margin-bottom: 5px;
+padding: 10px;
+font-size: 12px;
+line-height: 14px;
+    border-radius: 1px;
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
 color: #414141;
 height:35px;
 }
@@ -608,7 +662,11 @@ height: 35px;
 border-radius: 0px 5px 5px 0px;
 padding:4px;
 margin-top:1px;
+<<<<<<< HEAD
 bottom: 5px;
+=======
+bottom: 20px;
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
 }
 .comment-view{
     padding: 0px 40px 0px 40px;
@@ -631,7 +689,11 @@ height:14px;
 
 .auth-links{
 width:100%; 
+<<<<<<< HEAD
  overflow:visible;
+=======
+ overflow:auto;
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
  position:relative;
 }
 
@@ -650,6 +712,7 @@ margin-right:35px;
  right:0;
  top:11px;
  border-radius:4px;
+<<<<<<< HEAD
  overflow:visible;
     cursor: pointer;
 }
@@ -748,4 +811,12 @@ text-decoration:none;
 #shareImg{
     width:28px;
     height:28px;
+=======
+ overflow:hidden;
+}
+.header-profile-img img{
+ width:30px;
+ height:30px;
+ 
+>>>>>>> e256ddfe426cdb1bf248cdcf70f6db98de92f755
 }
